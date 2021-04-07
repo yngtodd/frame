@@ -1,4 +1,3 @@
-"""Command line interface for starter."""
 import argh
 
 
