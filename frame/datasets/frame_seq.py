@@ -26,6 +26,7 @@ class FrameSeq2Seq(Dataset):
         self.sentences = self._load_framenet()
 
     def _load_framenet(self, path):
+        """Load framenet sentences generator"""
         fn = framenet.FramenetCorpusReader(self.path, fileids=None)
         return fn.sents()
 
