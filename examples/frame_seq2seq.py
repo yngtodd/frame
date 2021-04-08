@@ -115,7 +115,7 @@ def main():
     trainer = Seq2SeqTrainer(
         model,
         training_args,
-        train_dataset=tokenized_datasets["train"],
+        train_dataset=tokenized_dataset["train"],
         data_collator=data_collator,
         tokenizer=tokenizer,
         compute_metrics=compute_metrics
