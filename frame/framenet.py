@@ -11,20 +11,6 @@ def load_sentences(path: str):
     return fn.sents()
 
 
-def _save_sentence(sentence, filename):
-    """Save sentence and frame information"""
-    with open(filename, mode='w') as f:
-        writer = csv.writer(
-            f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL
-        )
-
-        writer.writerow([
-            sentence.frame.name, 
-            sentence.text, 
-            sentence.frame.definition
-        ])
-
-
 def save_sentence(sentence, filename):
     """Save sentence and frame information"""
     with open(filename, mode='w') as f:
@@ -71,7 +57,12 @@ def save_sentence_data(framenet_path, save_root, num_samples=100_000):
 def load_sentence(filename):
     """Load a single sentence, frame definition pair"""
     with open(filename, mode='r') as f:
-        sentence = csv.DictReader(f)
+        reader = csv.DictReader(f)
+
+        # Each file we processed is just a single dicionary,
+        # we can grab that and run.
+        for line in reader:
+            sentence = dict(line)
 
     return sentence
 
@@ -85,5 +76,12 @@ def load_sentence_data(save_root):
     """
     root = Path(save_root).glob("**/*")
     files = [x for x in root if x.is_file()]
-    return [load_sentence(x) for x in files]
+
+    sentences = []
+    for file in tqdm(files):
+        sentences.append(
+            load_sentence(file)
+        )
+
+    return sentences
 
