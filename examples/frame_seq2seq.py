@@ -102,7 +102,6 @@ def main():
 
     training_args = Seq2SeqTrainingArguments(
         "./results/summarization",
-        evaluation_strategy = "epoch",
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,
         weight_decay=0.01,
