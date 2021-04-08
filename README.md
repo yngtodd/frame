@@ -27,15 +27,15 @@ Seq2Seq training mapping framenet sentences to semantic frame definitions using 
 
 #### Notebooks
 
-`[01_base_pipeline](examples/notebooks/01_base_pipeline.ipynb)`: 
+[01_base_pipeline](examples/notebooks/01_base_pipeline.ipynb): 
 
 Baseline testing summarization of a HuggingFace Seq2Seq model on framenet
 
-`[02_frame_seq2seq_dataset](examples/notebooks/02_frame_seq2seq_dataset.ipynb)`: 
+[02_frame_seq2seq_dataset](examples/notebooks/02_frame_seq2seq_dataset.ipynb): 
 
 Example usage of a Pytorch Dataset for loading pairs of framenet sentences and frame definitions.
 
-`[03_tokenization](examples/notebooks/03_tokenization.ipynb)`: 
+[03_tokenization](examples/notebooks/03_tokenization.ipynb): 
 
 Example showing Seq2Seq tokenization process using HuggingFace's Datasets library. Note: this 
 depends on the preprocessed data created by `frame.cli:preprocess-framenet`.
