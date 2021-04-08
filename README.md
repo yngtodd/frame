@@ -12,6 +12,9 @@ python setup.py install
 
 Frame comes with a built in command line interface:
 
+`preprocess-framenet`: save sentences and corresponding frame definitions as csv files. This 
+can then be used by HuggingFace's Datasets library to prepare the data for Seq2Seq models.
+
 ```python
-python -m starter.cli greet
+python -m frame.cli preprocess-framenet <path/to/fndata-1.7> <root/path/to/save/preprocessed/data>
 ```

@@ -11,7 +11,7 @@ requirements = ['argh',]
 
 
 COMMANDS = [
-    'greet = frame.cli:greet',
+    'greet = frame.cli:preprocess_framenet',
 ]
 
 
