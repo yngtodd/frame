@@ -4,8 +4,10 @@ import numpy as np
 
 from argparse import ArgumentParser
 from frame.framenet import data_paths
-from datasets import load_dataset, DatasetDict
 
+from datasets import (
+    load_dataset, DatasetDict, load_metric
+)
 from transformers import (
     AutoTokenizer, AutoModelForSeq2SeqLM, 
     DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
@@ -24,6 +26,8 @@ def parse_args():
                         help="max frame definition length")
     parser.add_argument("--batch_size", type=int, default=16,
                         help="batch size for training and eval")
+    parser.add_argument("--epochs", type=int, default=1,
+                        help="number of epochs")
     return parser.parse_args()
 
 
@@ -34,6 +38,7 @@ def main():
     # using `frame.cli:preprocess-framenet
     paths = data_paths(args.data)
     dataset = load_dataset('json', data_files=paths)
+    metric = load_metric("rouge")
 
     train_test = dataset["train"].train_test_split(test_size=0.1)
     test_valid = train_test["test"].train_test_split(test_size=0.5)
@@ -118,7 +123,7 @@ def main():
         per_device_eval_batch_size=args.batch_size,
         weight_decay=0.01,
         save_total_limit=3,
-        num_train_epochs=1,
+        num_train_epochs=args.epochs,
         predict_with_generate=True,
         fp16=True,
     )
