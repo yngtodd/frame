@@ -11,7 +11,6 @@ requirements = [
     'argh',
     'tqdm',
     'nltk',
-    'torch',
     'datasets',
     'transformers',
 ]
