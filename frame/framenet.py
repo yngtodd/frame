@@ -136,6 +136,11 @@ def data_paths(root):
 
     Args:
         root: root path to the json preprocessed data
+
+    Raises:
+        `ValueError`: if the files do not exist in the `root` 
+        directory. Make sure to prepocess the data using `frame`'s
+        frame.cli:preprocess-framenet before loading the data.
     """
     path = Path(root).glob("**/*")
     paths = [str(p) for p in path]
