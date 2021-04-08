@@ -101,7 +101,7 @@ def main():
     data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
 
     training_args = Seq2SeqTrainingArguments(
-        "test-summarization",
+        "./results/summarization",
         evaluation_strategy = "epoch",
         learning_rate=2e-5,
         per_device_train_batch_size=args.batch_size,

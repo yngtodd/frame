@@ -18,3 +18,13 @@ can then be used by HuggingFace's Datasets library to prepare the data for Seq2S
 ```python
 python -m frame.cli preprocess-framenet <path/to/fndata-1.7> <root/path/to/save/preprocessed/data>
 ```
+
+#### Examples
+
+[frame_seq2seq](examples/frame_seq2seq.py): Seq2Seq training mapping framenet sentences to 
+semantic frame definitions using framenet.
+
+
+#### Notebooks
+
+
