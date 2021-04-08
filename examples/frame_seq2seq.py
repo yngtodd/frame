@@ -7,7 +7,7 @@ from argparse import ArgumentParser
 from frame.framenet import data_paths
 
 from transformers import (
-    AutoTokenizer AutoModelForSeq2SeqLM, 
+    AutoTokenizer, AutoModelForSeq2SeqLM, 
     DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
 )
 
@@ -32,8 +32,8 @@ def main():
 
     # this requires having preprocessed framenet
     # using `frame.cli:preprocess-framenet
-    data_paths = data_paths(args.data)
-    dataset = load_dataset('json', data_files=data_paths)
+    paths = data_paths(args.data)
+    dataset = load_dataset('json', data_files=paths)
 
     tokenizer = AutoTokenizer.from_pretrained(args.model)
 
