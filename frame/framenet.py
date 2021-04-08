@@ -11,7 +11,7 @@ def load_sentences(path: str):
     return fn.sents()
 
 
-def save_sentence(sentence, filename):
+def _save_sentence(sentence, filename):
     """Save sentence and frame information"""
     with open(filename, mode='w') as f:
         writer = csv.writer(
@@ -23,6 +23,21 @@ def save_sentence(sentence, filename):
             sentence.text, 
             sentence.frame.definition
         ])
+
+
+def save_sentence(sentence, filename):
+    """Save sentence and frame information"""
+    with open(filename, mode='w') as f:
+        fieldnames = ['frame', 'sentence', 'frame_definition']
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+        writer.writeheader()
+
+        writer.writerow({
+            "frame": sentence.frame.name, 
+            "sentence": sentence.text, 
+            "frame_definition": sentence.frame.definition
+        })
 
 
 def save_sentence_data(framenet_path, save_root, num_samples=100_000):
@@ -51,4 +66,12 @@ def save_sentence_data(framenet_path, save_root, num_samples=100_000):
         # Name the file based on frame type
         path = root.joinpath(f"{sent.frame.name}_{idx}.csv")
         save_sentence(sent, path)
+
+
+def load_sentence(filename):
+    """Load a single sentence, frame definition pair"""
+    with open(filename, mode='r') as f:
+        sentence = csv.DictReader(f)
+
+    return sentence
 
