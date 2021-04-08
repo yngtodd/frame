@@ -75,3 +75,15 @@ def load_sentence(filename):
 
     return sentence
 
+
+def load_sentence_data(save_root):
+    """Load all raww sentence, frame definition pairs
+
+    We will get a list of dictionaries, each
+    representing a raw text sentence, frame 
+    definition pair.
+    """
+    root = Path(save_root).glob("**/*")
+    files = [x for x in root if x.is_file()]
+    return [load_sentence(x) for x in files]
+
