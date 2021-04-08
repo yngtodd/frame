@@ -13,6 +13,13 @@ This first requires preprocessing the framenet data using `frame`'s cli:
 python -m frame.cli preprocess-framenet <path/to/fndata-1.7> <root/path/to/save/preprocessed/data>
 ```
 
+The evaluation metric for the model also requires a dependency from `nltk`:
+
+```python
+import nltk
+nltk.download('punkt')
+```
+
 We can then train the Seq2Seq model with
 
 ```python

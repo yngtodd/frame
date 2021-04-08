@@ -13,6 +13,7 @@ requirements = [
     'nltk',
     'datasets',
     'transformers',
+    'rouge-score',
 ]
 
 
