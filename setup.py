@@ -7,7 +7,12 @@ with open('README.md') as readme_file:
 
 setup_requirements = ['pytest-runner', ]
 test_requirements = ['pytest>=3', ]
-requirements = ['argh',]
+requirements = [
+    'argh',
+    'tqdm',
+    'nltk',
+    'torch',
+]
 
 
 COMMANDS = [
