@@ -21,7 +21,7 @@ python -m frame.cli preprocess-framenet <path/to/fndata-1.7> <root/path/to/save/
 
 ### Examples
 
-`[frame_seq2seq](examples/frame_seq2seq.py)`: 
+[frame_seq2seq](examples/frame_seq2seq.py): 
 
 Seq2Seq training mapping framenet sentences to semantic frame definitions using framenet.
 
