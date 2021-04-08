@@ -126,3 +126,24 @@ def save_sentence_json(framenet_path, save_root, num_samples=100_000):
         path = root.joinpath(f"{sent.frame.name}_{idx}.json")
         save_json(sent, path)
 
+
+def data_paths(root):
+    """Get the paths for the processed data
+
+    Note:
+        This first requires that you use `frame`'s cli
+        to preprocess the framenet data into json files.
+
+    Args:
+        root: root path to the json preprocessed data
+    """
+    path = Path(root).glob("**/*")
+    paths = [str(p) for p in path]
+
+    if len(paths) == 0:
+        raise ValueError(
+            f"Preprocessed data not found at <{root}>! Use frame.cli:preprocess-framenet"
+        )
+
+    return paths
+
