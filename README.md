@@ -2,13 +2,13 @@
 
 Seq2Seq modeling for frame semantics.
 
-#### Setup
+### Setup
 
 ```
 python setup.py install
 ```
 
-#### Features
+### Features
 
 Frame comes with a built in command line interface:
 
@@ -19,13 +19,13 @@ can then be used by HuggingFace's Datasets library to prepare the data for Seq2S
 python -m frame.cli preprocess-framenet <path/to/fndata-1.7> <root/path/to/save/preprocessed/data>
 ```
 
-#### Examples
+### Examples
 
 `[frame_seq2seq](examples/frame_seq2seq.py)`: 
 
 Seq2Seq training mapping framenet sentences to semantic frame definitions using framenet.
 
-#### Notebooks
+### Notebooks
 
 [01_base_pipeline](examples/notebooks/01_base_pipeline.ipynb): 
 
