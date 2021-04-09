@@ -11,9 +11,11 @@ requirements = [
     'argh',
     'tqdm',
     'nltk',
+    'cython',
     'datasets',
     'transformers',
     'rouge-score',
+    'sentencepiece',
 ]
 
 
