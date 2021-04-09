@@ -45,3 +45,6 @@ Example usage of a Pytorch Dataset for loading pairs of framenet sentences and f
 Example showing Seq2Seq tokenization process using HuggingFace's Datasets library. Note: this 
 depends on the preprocessed data created by `frame.cli:preprocess-framenet`.
 
+[04_evaluation](examples/notebooks/04_evaluation.ipynb):
+
+Notebook evluating the fine tuned `t5` model.
