@@ -26,3 +26,13 @@ metric as our litmus test.
 ```python
 python frame_seq2seq.py --data <root/path/to/save/preprocessed/data>
 ```
+
+### Notes
+
+`t5` seems to be very sensitive to its input data. Evaluating the model after fine tuning for only 
+a handful of epochs, it seems that the model's ability to summarize text changes quickly. 
+
+Things to try:
+
+- [ ] longer trainer runs (currently training 100 epochs on a single Quadro RTX 6000.
+- [ ] preprocessing the framenet frame definitions. Are these really the best summaries for the sample sentences? 
