@@ -4,7 +4,7 @@ Seq2Seq modeling for frame semantics.
 
 After talking about how well language models might fare when it comes to frame semantics, I thought this would be 
 an interesting test. With framenet in hand, I decided to fine tune a standard pretrained Seq2Seq model, `t5`, where
-the input data is a sample sentence from frament, and the associated summary is the frame definition associated with that
+the input data is a sample sentence from framenet, and the given summary is the frame definition associated with that
 sentence.
 
 ## Setup
